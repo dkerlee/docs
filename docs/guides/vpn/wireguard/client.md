@@ -162,7 +162,11 @@ and add the private key of this client
 echo "PrivateKey = $(cat "${name}.key")" >> "${name}.conf"
 ```
 
-Next, add your server as peer for this client:
+Next using nano, add your server as peer for this client:
+
+```bash
+nano ${name}.conf
+```
 
 ```plain
 [Peer]
@@ -170,6 +174,11 @@ AllowedIPs = 10.100.0.1/32, fd08:4711::1/128
 Endpoint = [your public IP or domain]:47111
 PersistentKeepalive = 25
 ```
+
+<!-- markdownlint-disable code-block-style -->
+!!! info "If you're adding remote LAN access"
+    You're going to add the additional AllowedIPs from [here](#allow-clients-to-access-other-devices) before copying configuration to clients.
+<!-- markdownlint-enable code-block-style -->
 
 Then add the public key of the server as well as the PSK for this connection:
 
